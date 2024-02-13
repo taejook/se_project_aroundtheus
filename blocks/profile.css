@@ -20,6 +20,7 @@
     grid-area: button;
     margin-left: 18px;
     border: solid  1px white;
+    cursor: pointer;
 }
 
 .profile__edit-button:hover{
@@ -33,6 +34,7 @@
     height: 50px;
     margin-left: auto;
     border: solid 1px white;
+    cursor: pointer;
 }
 
 .profile__add-button:hover{

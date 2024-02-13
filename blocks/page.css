@@ -5,7 +5,7 @@
 }
 
 .page__content{
-    padding: 0 19px;
+    min-height: 100vh;
 }
 
 .page__section{

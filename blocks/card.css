@@ -14,7 +14,7 @@
     overflow: hidden;
 }
 
-.card__list{
+.cards__list{
     display: grid;
     justify-content: center;
     grid-template-columns: repeat(auto-fit, 282px);
@@ -40,16 +40,12 @@
 }
 
 .card__description{
-    height: 79px;
     display: flex;
     background-color: white;
     color: black;
     justify-content: space-between;
     align-items: center;
-    padding-left: 20px;
-    padding-right: 20px;
-    padding-top: 25px;
-    padding-bottom: 25px;
+    padding: 25px 20px;
 }
 
 .card__like-button{
@@ -58,6 +54,7 @@
     height: 21px;
     width: 20px;
     border: none;
+    cursor: pointer;
 }
 
 .card__like-button:hover{

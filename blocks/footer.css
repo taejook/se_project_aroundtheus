@@ -11,6 +11,7 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 0;
+    margin-left: 200px;
 
 }
 
@@ -27,6 +28,8 @@
         max-width: calc(100%-40px);
         margin: 48px 19px 36px 19px;
         max-width: 320px;
+        margin-left: 19px;
+        margin-bottom: 36px;
     }
 
     .footer__text{
