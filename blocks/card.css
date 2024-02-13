@@ -12,6 +12,8 @@
     width: 282px;
     border-radius: 10px;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
 }
 
 .cards__list{
@@ -37,6 +39,7 @@
     text-overflow: ellipsis;
     white-space: nowrap;
     overflow: hidden;
+    margin: 0;
 }
 
 .card__description{
