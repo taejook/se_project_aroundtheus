@@ -13,17 +13,3 @@
     width: 100%;
     margin: 0 auto;
 }
-
-@media screen and (max-width: 880px){
-    .page__section{
-        margin: 0 20px;
-        max-width: calc(100% - 40px);
-    }
-}
-
-@media screen and (max-width: 780px){
-    .page__content{
-        margin: 0 20px;
-        max-width: calc(100% - 40px);
-    }
-}

@@ -11,8 +11,6 @@
     display: flex;
     justify-content: flex-start;
     margin-bottom: 0;
-    margin-left: 200px;
-
 }
 
 .footer__text{
@@ -22,18 +20,12 @@
 
 @media screen and (max-width: 320px){
     .footer{
-        width: 282;
         font-size: 14px;
         line-height: 17px;
-        max-width: calc(100%-40px);
         margin: 48px 19px 36px 19px;
         max-width: 320px;
         margin-left: 19px;
         margin-bottom: 36px;
-    }
-
-    .footer__text{
-        line-height: 17px;
-        font-size: 14px;
+        padding: 0;
     }
 }
