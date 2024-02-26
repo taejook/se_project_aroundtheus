@@ -8,7 +8,6 @@
 .card__image{
     width: 282px;
     height: 282px;
-    border-radius: 10px 10px 0 0;
 }
 
 
@@ -22,7 +21,7 @@
 }
 
 .card__like-button{
-    background: transparent url(/images/disabled_like.svg) center no-repeat;
+    background: transparent url(../images/disabled_like.svg) center no-repeat;
     object-fit: fill;
     height: 21px;
     width: 20px;
@@ -32,8 +31,6 @@
 
 .card__like-button:hover{
     opacity: .5;
-    height: 21px;
-    width: 20px;
 }
 
 @media screen and (max-width: 568px){

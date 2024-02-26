@@ -14,7 +14,7 @@
 }
 
 .profile__edit-button {
-  background: transparent url(/images/vector_edit.svg) center no-repeat;
+  background: transparent url(../images/vector_edit.svg) center no-repeat;
   height: 24px;
   width: 24px;
   grid-area: button;
@@ -28,13 +28,13 @@
 }
 
 .profile__add-button {
-  background: transparent url(/images/vector_add.svg) no-repeat center;
+  background: transparent url(../images/vector_add.svg) no-repeat center;
   width: 150px;
   height: 50px;
   margin-left: auto;
   border: solid 2px white;
   cursor: pointer;
-  border-radius: 1px;
+  border-radius: 2px;
 }
 
 .profile__add-button:hover {
@@ -42,6 +42,7 @@
 }
 
 .profile__title {
+  max-width: 880px;
   font-family: "Inter", Arial, sans-serif;
   font-size: 42px;
   line-height: 48px;
@@ -106,6 +107,8 @@
     margin: 0;
     width: 100%;
     object-fit: stretch;
+    max-width: 282px;
+    background-size: 16px;
   }
 
   .profile__image {
@@ -138,12 +141,5 @@
     margin-bottom: 7px;
     margin-right: 10px;
     background-size: 7.5px;
-  }
-
-  .profile__add-button {
-    margin: 0;
-    width: 100%;
-    max-width: 282px;
-    background-size: 16px;
   }
 }
