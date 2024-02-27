@@ -27,3 +27,7 @@ The way you'll do this at work is by exporting images directly from Figma — we
 *CSS
   
 Good luck and have fun!
+
+
+**Video**
+*[Link to the video](https://drive.google.com/drive/u/0/folders/1zFv6pMarljxxFVEA_EecffjIC8RwsMtT)
