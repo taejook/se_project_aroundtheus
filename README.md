@@ -31,3 +31,6 @@ Good luck and have fun!
 
 **Video**
 *[Link to the video](https://drive.google.com/drive/u/0/folders/1zFv6pMarljxxFVEA_EecffjIC8RwsMtT)
+
+**Site URL**
+*[Link to the site](https://taejook.github.io/se_project_aroundtheus/)
