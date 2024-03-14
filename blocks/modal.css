@@ -7,15 +7,16 @@
     bottom: 0;
     z-index: 999;
     flex-direction: column;
-    display: none;
+    display: flex;
     padding: 0 19px;
     align-items: center;
     justify-content: center;
     font-family: "Inter", "Arial", sans-serif;
+    visibility: hidden;
 }
 
 .modal__opened{
-display: flex;
+    visibility: visible;
 }
 
 .modal__heading{
