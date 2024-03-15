@@ -15,7 +15,7 @@
     visibility: hidden;
 }
 
-.modal__opened{
+.modal_opened{
     visibility: visible;
 }
 
@@ -83,4 +83,42 @@
 
 .modal__input:last-child{
     margin-bottom: 0;
+}
+
+@media screen and (max-width: 620px){
+
+    .modal__container {
+        padding: 25px 22px;
+        width: 238px;
+      }
+    
+      .modal__form {
+        margin-top: 76px;
+      }
+    
+      .modal__heading {
+        font-size: 18px;
+        line-height: 1.2;
+      }
+    
+      .modal__button {
+        margin-top: 46px;
+      }
+      .modal__close {
+        width: 26px;
+        height: 26px;
+        top: -39px;
+        left: 260px;
+      }
+    
+      .modal__input {
+        padding-bottom: 9px;
+        width: 238px;
+      }
+    
+      .modal__button {
+        font-size: 14px;
+        height: 46px;
+        width: 238px
+      }
 }
