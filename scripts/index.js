@@ -30,9 +30,8 @@ const initialCards=[
 }
 ]
 /*Elements*/
-const profileEditBtn = document.querySelector("#profile-edit-button");
 const profileEditModal = document.querySelector("#profile-edit-modal");
-const profileEditCloseBtn = document.querySelector("#profile-edit-close");
+const addCardModal = document.querySelector("#add-card-modal");
 const profileTitle = document.querySelector('.profile__title');
 const profileDescription = document.querySelector('.profile__description');
 const profileEditTitleInput = document.querySelector('#profile-title-input');
@@ -41,13 +40,22 @@ const profileEditDescriptionInput = document.querySelector('#profile-description
 const profileEditForm = profileEditModal.querySelector('.modal__form');
 const cardListEl = document.querySelector('.cards__list');
 const cardTemplate = document.querySelector('#card-template').content.firstElementChild;
+
+/*Buttons*/
+const profileEditBtn = document.querySelector("#profile-edit-button");
+const profileEditCloseBtn = profileEditModal.querySelector("#profile-edit-close");
+const addNewCardButton = document.querySelector(".profile__add-button");
 /*Functions*/
-function closePopUp(){
-    profileEditModal.classList.remove('modal_opened');
+function closePopUp(modal){
+    modal.classList.remove('modal_opened');
 }
 
-function openPopUp(){
+/*function openPopUp(){
     profileEditModal.classList.add('modal_opened');
+}*/
+
+function openPopUp(modal){
+    modal.classList.add('modal_opened');
 }
 
 function handleProfileEditSubmit(e){
@@ -73,10 +81,11 @@ profileEditBtn.addEventListener('click', () =>{
     openPopUp();
 });
 
-profileEditCloseBtn.addEventListener('click',closePopUp);
-
 profileEditForm.addEventListener('submit', handleProfileEditSubmit);
-
+profileEditBtn.addEventListener('click', () => openPopUp(profileEditModal))
+profileEditCloseBtn.addEventListener('click',() => closePopUp(profileEditModal));
+addNewCardButton.addEventListener('click', () => openPopUp(addCardModal));
+addNewCardButton.addEventListener('click', () => closePopUp(addCardModal));
 initialCards.forEach((cardData) =>{
     const cardElement = getCardElement(cardData);
     cardListEl.prepend(cardElement);
