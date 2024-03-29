@@ -83,6 +83,7 @@ function handleAddCardFormSubmit(e){
     renderCard({name, link}, cardListEl);
     cardListEl.prepend(cardElement);
     closePopUp(addCardModal);
+    addCardModal.reset();
 };
 
 function getCardElement(cardData){
