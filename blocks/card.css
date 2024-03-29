@@ -29,8 +29,22 @@
     cursor: pointer;
 }
 
+.card__like-button_active{
+    background-image: url(../images/active_like.svg);
+}
+
 .card__like-button:hover{
     opacity: .5;
+}
+
+.card__delete-button{
+    background-image:transparent url(../images/trash.png);
+    position: absolute;
+    height: 18px;
+    width: 19px;
+    border: none;
+    margin: 18px 249px 0;
+    cursor: pointer;
 }
 
 @media screen and (max-width: 568px){

@@ -9,6 +9,7 @@
     flex-direction: column;
     display: flex;
     padding: 0 19px;
+    transition: visibility 0s, opacity 0.4s linear;
     align-items: center;
     justify-content: center;
     font-family: "Inter", "Arial", sans-serif;
@@ -17,6 +18,7 @@
 
 .modal_opened{
     visibility: visible;
+    transition: visibility 0s, opacity 0.4s linear;
 }
 
 .modal__heading{
@@ -85,6 +87,27 @@
     margin-bottom: 0;
 }
 
+.modal__preview{
+  background-color: transparent;
+  color: rgba(255, 255, 255, 0.85);
+  position: relative;
+}
+
+#modal__preview-image{
+  width: auto;
+  max-width: 75vw;
+  height: auto;
+  max-height: 75vh;
+  object-fit: cover;
+}
+
+#modal__preview-description{
+  font-family: "Inter", Arial, Helvetica, sans-serif;
+  word-wrap: break-word;
+  font-size: 12px;
+  font-weight: 400;
+}
+
 @media screen and (max-width: 620px){
 
     .modal__container {
@@ -120,5 +143,9 @@
         font-size: 14px;
         height: 46px;
         width: 238px
+      }
+      #modal__preview-image{
+        width: 240px;
+        height: 299px;
       }
 }
