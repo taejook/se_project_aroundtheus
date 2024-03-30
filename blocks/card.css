@@ -10,6 +10,9 @@
     height: 282px;
 }
 
+.card__image:hover {
+    cursor: pointer;
+}
 
 .card__description{
     display: flex;
@@ -38,7 +41,8 @@
 }
 
 .card__delete-button{
-    background-image:transparent url(../images/trash.png);
+    background-image: url(../images/Trash.svg);
+    background-color: transparent;
     position: absolute;
     height: 18px;
     width: 19px;
