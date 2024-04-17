@@ -52,16 +52,28 @@
             <button class="modal__close" id = "profile-edit-close"></button>
             <p class="modal__heading">Edit Profile</p>
             <form class="modal__form">
+                <label class="modal__label">
                 <input class ="modal__input" 
                 type="text" 
                 name="title" 
                 id = "profile-title-input" 
-                placeholder ="Name">
+                placeholder ="Name"
+                minlength = "2"
+                maxlength="40"
+                required>
+                <span class="modal__error" id="profile-title-error"></span>
+                </label>
+                <label class="modal__label">
                 <input class ="modal__input" 
                 type="text" 
                 name="description" 
                 id = "profile-description-input" 
-                placeholder = "Description">
+                placeholder = "Description"
+                minlength = "2"
+                maxlength = "40"
+                required>
+                <span class="modal__error" id="profile-description-error"></span>
+            </label>
             <button class="button modal__button" type ="submit">Save</button>
         </form>
         </div>
@@ -73,13 +85,19 @@
             <button class="modal__close" id = "add-card-close"></button>
             <h2 class="modal__heading">New Place</h2>
             <form class="modal__form" id = "add-card-form">
+                <label class="modal__label">
                 <input class ="modal__input modal__input_type_title" 
                     type="text" 
                     name="title" 
                     id = "add-title-input" 
                     placeholder ="Title"
+                    min-length = "2"
+                    max-length = "200"
                     required
                     >
+                    <span class="modal__error" id="card-name-error"></span>
+                </label>
+                <label class="modal__label">
                 <input class ="modal__input modal__input_type_url" 
                     type="text" 
                     name="url" 
@@ -87,6 +105,8 @@
                     placeholder = "Image URL"
                     required
                     >
+                    <span class="modal__error" id="card-link-error"></span>
+                </label>
             <button class="button modal__button" type ="submit">Save</button>
         </form>
         </div>
@@ -103,6 +123,7 @@
         </div>
     </div>
     <script src='./scripts/index.js' defer></script>
+    <script src='./scripts/validation.js' defer></script>
 </body>
 
 </html>
