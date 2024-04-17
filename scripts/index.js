@@ -55,6 +55,7 @@ const previewImage = document.querySelector('.modal__preview-image');
 const previewDescription = document.querySelector('.modal__preview-description');
 const previewCloseButton = previewCardModal.querySelector('.modal__close')
 /*Functions*/
+
 function closePopUp(modal){
     modal.classList.remove('modal_opened');
 }
@@ -68,6 +69,19 @@ function renderCard(cardData, wrapper){
     const cardElement = getCardElement(cardData);
     wrapper.prepend(cardElement);
 }
+
+function closeModalOverlay(e) {
+    if (e.target === e.currentTarget) {
+        closePopUp(e.currentTarget);
+    }
+  }
+  
+  function closeModalEscape(e) {
+    if (e.key === "Escape") {
+      const modalOpened = document.querySelector(".modal_opened");
+      closePopUp(modalOpened);
+    }
+  }
 
 function handleProfileEditSubmit(e){
     e.preventDefault();

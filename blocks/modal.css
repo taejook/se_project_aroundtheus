@@ -80,6 +80,13 @@
   opacity: 0.8;
 }
 
+.modal__button_disabled {
+  cursor: none;
+  background: #fff;
+  border: 1px solid #ccc;
+  color: #ccc;
+}
+
 .modal__input{
     width: 100%;
     font-size: 14px;
