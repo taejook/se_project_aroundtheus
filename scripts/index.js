@@ -58,10 +58,14 @@ const previewCloseButton = previewCardModal.querySelector('.modal__close')
 
 function closePopUp(modal){
     modal.classList.remove('modal_opened');
+    document.removeEventListener("keydown", closeModalEscape);
+    modal.removeEventListener("mousedown", closeModalOverlay);
 }
 
 function openPopUp(modal){
     modal.classList.add('modal_opened');
+    document.addEventListener("keydown", closeModalEscape);
+    modal.addEventListener("mousedown", closeModalOverlay);
 }
 
 
@@ -96,6 +100,7 @@ function handleAddCardFormSubmit(e){
     const link = cardUrlInput.value;
     renderCard({name, link}, cardListEl);
     closePopUp(addCardModal);
+    e.target.reset();
 };
 
 function getCardElement(cardData){
@@ -120,7 +125,7 @@ function getCardElement(cardData){
 
         previewImage.src = cardData.link;
         previewDescription.textContent = cardData.name;
-        previewImage.alt = `${cardData.name}`;
+        previewImage.alt = cardData.name;
         openPopUp(previewCardModal);
     });
     cardImageEl.setAttribute('src', cardData.link);
