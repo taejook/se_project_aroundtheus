@@ -1,3 +1,6 @@
+import Card from "../components/Card.js";
+import FormValidator from "../components/FormValidator.js";
+
 const initialCards=[
 
 {
@@ -28,7 +31,15 @@ const initialCards=[
     name: "Lago di Braies",
     link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg"
 }
-]
+];
+
+const cardData = {
+    name: "Yosemite Valley",
+    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg"
+}
+
+//const card = new Card(cardData, '#card-template');
+//card._getView();
 /*Elements*/
 const profileEditModal = document.querySelector("#profile-edit-modal");
 const addCardModal = document.querySelector("#add-card-modal");
@@ -104,34 +115,9 @@ function handleAddCardFormSubmit(e){
 };
 
 function getCardElement(cardData){
-    const cardElement = cardTemplate.cloneNode(true);
-    const cardImageEl = cardElement.querySelector('.card__image');
-    const cardTitleEl = cardElement.querySelector('.cards__title');
-    const likeButton = cardElement.querySelector('.card__like-button');
-    //find delete button
-    const deleteButton = cardElement.querySelector('.card__delete-button');
-    //add the event lsitener to the delete button
-        //cardElement.remove();
-    //add click listener to the cardImage element
-        //open modal with preview image modal
-
-    likeButton.addEventListener('click', () =>{
-        likeButton.classList.toggle('card__like-button_active')
-    });
-    deleteButton.addEventListener('click', () =>{
-        cardElement.remove();
-    })
-    cardImageEl.addEventListener('click', () => {
-
-        previewImage.src = cardData.link;
-        previewDescription.textContent = cardData.name;
-        previewImage.alt = cardData.name;
-        openPopUp(previewCardModal);
-    });
-    cardImageEl.setAttribute('src', cardData.link);
-    cardImageEl.setAttribute('alt', cardData.name);
-    cardTitleEl.textContent = cardData.name;
-    return cardElement;
+    const card = new Card(cardData, "#card-template");
+  const cardElement = card.getView();
+  return cardElement;
 }
 /*Event Listeners*/
 profileEditBtn.addEventListener('click', () =>{
