@@ -114,8 +114,15 @@ function handleAddCardFormSubmit(e){
     e.target.reset();
 };
 
+function handleImageClick() {
+    previewImage.src = cardData.link;
+    previewImage.alt = cardData.name + " " + "Image";
+    previewDescription.textContent = cardData.name;
+    openPopUp(previewCardModal);
+};
+
 function getCardElement(cardData){
-    const card = new Card(cardData, "#card-template");
+    const card = new Card(cardData, "#card-template", handleImageClick);
   const cardElement = card.getView();
   return cardElement;
 }
@@ -137,3 +144,20 @@ closeNewCardButton.addEventListener('click', () => closePopUp(addCardModal));
 previewCloseButton.addEventListener('click', () => closePopUp(previewCardModal));
 
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
+
+//Validation
+const validationSettings = {
+    inputSelector: ".modal__input",
+    submitButtonSelector: ".modal__button",
+    inactiveButtonClass: "modal__button_disabled",
+    inputErrorClass: "modal__input_type_error",
+    errorClass: "modal__error_visible",
+  };
+  
+  const editFormElement = profileEditModal.querySelector(".modal__form");
+  const addFormElement = document.querySelector("#add-card-form");
+  const editFormValidator = new FormValidator(
+    validationSettings,
+    editFormElement
+  );
+  const addFormValidator = new FormValidator(validationSettings, addFormElement);
