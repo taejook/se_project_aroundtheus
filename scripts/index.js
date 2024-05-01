@@ -103,6 +103,7 @@ function handleProfileEditSubmit(e){
     profileTitle.textContent =profileEditTitleInput.value;
     profileDescription.textContent = profileEditDescriptionInput.value;
     closePopUp(profileEditModal);
+    profileEditValidator.disableButton();
 };
 
 function handleAddCardFormSubmit(e){
@@ -112,6 +113,7 @@ function handleAddCardFormSubmit(e){
     renderCard({name, link}, cardListEl);
     closePopUp(addCardModal);
     e.target.reset();
+    addCardValidator.disableButton();
 };
 
 function handleImageClick() {
@@ -146,18 +148,17 @@ previewCloseButton.addEventListener('click', () => closePopUp(previewCardModal))
 initialCards.forEach((cardData) => renderCard(cardData, cardListEl));
 
 //Validation
-const validationSettings = {
-    inputSelector: ".modal__input",
-    submitButtonSelector: ".modal__button",
-    inactiveButtonClass: "modal__button_disabled",
-    inputErrorClass: "modal__input_type_error",
-    errorClass: "modal__error_visible",
+const config = {
+    formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
   };
-  
-  const editFormElement = profileEditModal.querySelector(".modal__form");
-  const addFormElement = document.querySelector("#add-card-form");
-  const editFormValidator = new FormValidator(
-    validationSettings,
-    editFormElement
-  );
-  const addFormValidator = new FormValidator(validationSettings, addFormElement);
+
+const profileEditValidator = new FormValidator(config, profileEditForm);
+const addCardValidator = new FormValidator(config, addCardFormElement);
+
+profileEditValidator.enableValidation();
+addCardValidator.enableValidation();
