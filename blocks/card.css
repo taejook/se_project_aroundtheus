@@ -51,6 +51,11 @@
     cursor: pointer;
 }
 
+.card__delete-button:hover {
+    opacity: 0.6;
+    cursor: pointer;
+  }
+
 @media screen and (max-width: 568px){
     .card__list{
         padding: 15px 0 18px;
