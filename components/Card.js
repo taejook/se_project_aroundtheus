@@ -21,8 +21,13 @@ export default class Card {
         this._handleDeleteCard();
       });
     //image preview
-    this._cardImageEl.addEventListener("click", () => {
-      this._handleImageClick(this._cardElement);
+    this._cardElement
+      .querySelector(".card__image")
+      .addEventListener("click", () => {
+        this._handleImageClick({
+          name: this._name,
+          link: this._link,
+        });
     });
   }
 
@@ -47,9 +52,10 @@ export default class Card {
     //get the card view
     this._cardImageEl = this._cardElement.querySelector(".card__image");
     this._cardTitleEl = this._cardElement.querySelector(".cards__title");
+    
     this._cardImageEl.src = this._link;
-    this._cardImageEl.alt = this._data.name + " " + "Image";
-    this._cardTitleEl.textContent = this._data.name;
+    this._cardImageEl.alt = this._name + " " + "Image";
+    this._cardTitleEl.textContent = this._name;
     //set event listeners
     this._setEventListeners();
     //return the card

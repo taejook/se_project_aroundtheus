@@ -32,11 +32,6 @@ const initialCards = [
   },
 ];
 
-const cardData = {
-  name: "Yosemite Valley",
-  link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-};
-
 //const card = new Card(cardData, '#card-template');
 //card._getView();
 /*Elements*/
@@ -123,7 +118,7 @@ function handleAddCardFormSubmit(e) {
   addCardValidator.disableButton();
 }
 
-function handleImageClick() {
+function handleImageClick(cardData) {
   previewImage.src = cardData.link;
   previewImage.alt = cardData.name + " " + "Image";
   previewDescription.textContent = cardData.name;
