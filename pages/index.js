@@ -1,73 +1,23 @@
 import Card from "../components/Card.js";
 import FormValidator from "../components/FormValidator.js";
-
-const initialCards = [
-  {
-    name: "Yosemite Valley",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/yosemite.jpg",
-  },
-
-  {
-    name: "Lake Louise",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lake-louise.jpg",
-  },
-  {
-    name: "Bald Mountains",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/bald-mountains.jpg",
-  },
-
-  {
-    name: "Latemar",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/latemar.jpg",
-  },
-
-  {
-    name: "Vanoise National Park",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/vanoise.jpg",
-  },
-
-  {
-    name: "Lago di Braies",
-    link: "https://practicum-content.s3.us-west-1.amazonaws.com/software-engineer/around-project/lago.jpg",
-  },
-];
+import PopupWithImage from "../components/PopupWithImage.js";
+import PopupWithForm from "../components/PopupWithForm.js";
+import Section from "../components/Section.js";
+import UserInfo from "../components/UserInfo.js";
+import {
+  initialCards,
+  cardListEl,
+  profileEditBtn,
+  profileEditForm,
+  addCardForm,
+  addNewCardButton,
+  profileTitleInput,
+  profileDescriptionInput,
+} from "../utils/constants.js";
+import "./index.css";
 
 //const card = new Card(cardData, '#card-template');
 //card._getView();
-/*Elements*/
-const profileEditModal = document.querySelector("#profile-edit-modal");
-const addCardModal = document.querySelector("#add-card-modal");
-const profileTitle = document.querySelector(".profile__title");
-const profileDescription = document.querySelector(".profile__description");
-const profileEditTitleInput = document.querySelector("#profile-title-input");
-const profileEditDescriptionInput = document.querySelector(
-  "#profile-description-input"
-);
-
-const profileEditForm = profileEditModal.querySelector(".modal__form");
-const addCardFormElement = addCardModal.querySelector(".modal__form");
-const cardListEl = document.querySelector(".cards__list");
-const cardTemplate =
-  document.querySelector("#card-template").content.firstElementChild;
-const cardTitleInput = addCardFormElement.querySelector(
-  ".modal__input_type_title"
-);
-const cardUrlInput = addCardFormElement.querySelector(".modal__input_type_url");
-/*Buttons*/
-const profileEditBtn = document.querySelector("#profile-edit-button");
-const profileEditCloseBtn = profileEditModal.querySelector(
-  "#profile-edit-close"
-);
-const addNewCardButton = document.querySelector(".profile__add-button");
-const closeNewCardButton = addCardModal.querySelector(".modal__close");
-const cardDeleteButton = document.querySelector("card__delete-button");
-
-const previewCardModal = document.querySelector("#preview-image-modal");
-const previewImage = document.querySelector(".modal__preview-image");
-const previewDescription = document.querySelector(
-  ".modal__preview-description"
-);
-const previewCloseButton = previewCardModal.querySelector(".modal__close");
 /*Functions*/
 
 function closePopUp(modal) {
