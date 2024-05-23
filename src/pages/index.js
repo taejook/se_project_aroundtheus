@@ -61,6 +61,7 @@ function handleProfileEditSubmit(inputValues) {// {title: jacke , description: e
 }
 
 function handleAddCardSubmit(inputValues) {
+  debugger;
   console.log(inputValues);
   renderCard(inputValues);
   addCardModal.close();
