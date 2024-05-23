@@ -5,7 +5,6 @@ export default class FormValidator {
     this._inactiveButtonClass = settings.inactiveButtonClass;
     this._inputErrorClass = settings.inputErrorClass;
     this._errorClass = settings.errorClass;
-
     this._form = formEl;
   }
 
@@ -65,8 +64,13 @@ export default class FormValidator {
   enableValidation() {
     this._form.addEventListener("submit", (evt) => {
       evt.preventDefault();
+      
     });
 
     this._setEventListeners();
+  }
+
+  resetValidiation(){
+    this._formEl.reset()
   }
 }

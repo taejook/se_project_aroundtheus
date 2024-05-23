@@ -58,9 +58,9 @@ export const profileDescriptionInput = document.querySelector(
   "#profile-description-input"
 );
 export const cardTitleInput = addCardForm.querySelector(
-  "#add-place-title-input"
+  ".modal__input_type_title"
 );
-export const cardUrlInput = addCardForm.querySelector("#add-place-url-input");
+export const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
 
 export const closeButtons = document.querySelectorAll(".modal__close");
 

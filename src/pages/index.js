@@ -46,11 +46,16 @@ section.addItems();
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
+/*Functions*/
+
+function createCard(data) {
+  const card = new Card(data, "#card-template", handleImageClick).getView();
+  return card;
+}
 
 //Event Handlers
-function handleProfileEditSubmit(inputValues) {
-  console.log(inputValues);
-  userInfo.setUserInfo(inputValues);
+function handleProfileEditSubmit(inputValues) {// {title: jacke , description: exploer}
+  userInfo.setUserInfo({name: inputValues.title, description: inputValues.description});
   profileEditModal.close();
   profileEditValidator.disableButton();
 }
@@ -64,12 +69,6 @@ function handleAddCardSubmit(inputValues) {
 
 function handleImageClick(cardData) {
   previewImageModal.open(cardData);
-}
-/*Functions*/
-
-function createCard(data) {
-  const card = new Card(data, "#card-template", handleImageClick).getView();
-  return card;
 }
 
 /*Event Listeners*/
@@ -95,7 +94,7 @@ const config = {
   inputSelector: ".modal__input",
   submitButtonSelector: ".modal__button",
   inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__error",
+  inputErrorClass: "modal__input_type_error",
   errorClass: "modal__error_visible",
 };
 
