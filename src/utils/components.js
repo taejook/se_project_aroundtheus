@@ -25,6 +25,7 @@ export const initialCards = [
   },
 ];
 
+export const formList = document.querySelectorAll(".modal__form");
 export const profileEditBtn = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const addCardModal = document.querySelector("#add-card-modal");
@@ -65,3 +66,12 @@ export const cardUrlInput = addCardForm.querySelector(".modal__input_type_url");
 export const closeButtons = document.querySelectorAll(".modal__close");
 
 export const addCardButton = addCardModal.querySelector("#add-modal-button");
+
+export const settings = {
+  formSelector: ".modal__form",
+  inputSelector: ".modal__input",
+  submitButtonSelector: ".modal__button",
+  inactiveButtonClass: "modal__button_disabled",
+  inputErrorClass: "modal__input_type_error",
+  errorClass: "modal__error_visible",
+};

@@ -14,6 +14,7 @@ import {
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
+  settings,
 } from "../utils/components.js";
 import "./index.css";
 
@@ -38,11 +39,10 @@ const section = new Section(
     items: initialCards,
     renderer: renderCard,
   },
-  "#card-template"
+  ".cards__list"
 );
 
 section.renderItems();
-section.addItems();
 
 const userInfo = new UserInfo(".profile__title", ".profile__description");
 
@@ -61,11 +61,10 @@ function handleProfileEditSubmit(inputValues) {// {title: jacke , description: e
 }
 
 function handleAddCardSubmit(inputValues) {
-  debugger;
   console.log(inputValues);
   renderCard(inputValues);
   addCardModal.close();
-  addCardValidator.disableButton();
+  addCardValidator.resetValidation();
 }
 
 function handleImageClick(cardData) {
@@ -82,25 +81,19 @@ profileEditBtn.addEventListener("click", () => {
 });
 
 //add new Card button
-addNewCardButton.addEventListener("click", () => addCardModal.open());
+addNewCardButton.addEventListener("click", () => {
+  addCardModal.open();
+});
 
 function renderCard(cardData) {
   const card = createCard(cardData);
-  cardListEl.prepend(card);
+  section.addItems(card);
 }
 
 //Validation
-const config = {
-  formSelector: ".modal__form",
-  inputSelector: ".modal__input",
-  submitButtonSelector: ".modal__button",
-  inactiveButtonClass: "modal__button_disabled",
-  inputErrorClass: "modal__input_type_error",
-  errorClass: "modal__error_visible",
-};
 
-const profileEditValidator = new FormValidator(config, profileEditForm);
-const addCardValidator = new FormValidator(config, addCardForm);
+const profileEditValidator = new FormValidator(settings, profileEditForm);
+const addCardValidator = new FormValidator(settings, addCardForm);
 
 profileEditValidator.enableValidation();
 addCardValidator.enableValidation();

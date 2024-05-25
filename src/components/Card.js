@@ -21,8 +21,7 @@ export default class Card {
         this._handleDeleteCard();
       });
     //image preview
-    this._cardElement
-      .querySelector(".card__image")
+    this._cardImageEl
       .addEventListener("click", () => {
         this._handleImageClick({
           name: this._name,
