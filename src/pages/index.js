@@ -55,6 +55,7 @@ function createCard(data) {
 
 //Event Handlers
 function handleProfileEditSubmit(inputValues) {// {title: jacke , description: exploer}
+  profileEditValidator.resetValidation();
   userInfo.setUserInfo({name: inputValues.title, description: inputValues.description});
   profileEditModal.close();
   profileEditValidator.disableButton();
@@ -65,6 +66,7 @@ function handleAddCardSubmit(inputValues) {
   renderCard(inputValues);
   addCardModal.close();
   addCardValidator.disableButton();
+  addCardForm.reset();
 }
 
 function handleImageClick(cardData) {
