@@ -64,7 +64,7 @@ function handleAddCardSubmit(inputValues) {
   console.log(inputValues);
   renderCard(inputValues);
   addCardModal.close();
-  addCardValidator.resetValidation();
+  addCardValidator.disableButton();
 }
 
 function handleImageClick(cardData) {
@@ -75,6 +75,7 @@ function handleImageClick(cardData) {
 profileEditBtn.addEventListener("click", () => {
   const currentUserData = userInfo.getUserInfo();
   console.log(currentUserData);
+  profileEditValidator.resetValidation();
   profileTitleInput.value = currentUserData.name;
   profileDescriptionInput.value = currentUserData.description;
   profileEditModal.open();
