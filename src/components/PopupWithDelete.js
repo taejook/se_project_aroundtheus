@@ -5,7 +5,9 @@ export default class PopupWithDelete extends Popup {
         super(popupSelector);
 
         this._deleteCardForm =
-        this._popupElement.querySelector('.modal__form');
+        this._popupElement.querySelector(".modal__form");
+
+        this._deleteCardButton = this._popupElement.querySelector(".modal__button");
     }
 
     setEventListeners(){

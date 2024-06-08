@@ -104,7 +104,7 @@ function handleDeleteCardFormSubmit(cardEl){
 
 function handleDeleteClick(cardEl){
   PopupWithDelete.setSubmitAction(() => {
-    api.deleteCard(cardEl._id).then(() => {
+    api.deleteCards(cardEl._id).then(() => {
       cardEl.remove();
       setTimeout(() => {
         deleteCardButton.textContent = "Yes";
