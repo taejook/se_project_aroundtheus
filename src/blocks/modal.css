@@ -151,6 +151,11 @@
   font-weight: 400;
 }
 
+#delete-image-modal{
+  height: 181px;
+  width: 430px;
+}
+
 @media screen and (max-width: 620px){
 
     .modal__container {
