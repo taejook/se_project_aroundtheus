@@ -67,10 +67,6 @@ export const closeButtons = document.querySelectorAll(".modal__close");
 
 export const addCardButton = addCardModal.querySelector("#add-modal-button");
 
-export const deleteCardModal = document.querySelector("#delete-image-modal");
-
-export const deleteCardButton = deleteCardModal.querySelector(".modal__button");
-
 export const settings = {
   formSelector: ".modal__form",
   inputSelector: ".modal__input",
