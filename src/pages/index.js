@@ -1,9 +1,9 @@
 import Card from "../components/Card.js";
-import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";
 import '../pages/index.css';
 import PopupWithImage from "../components/PopupWithImage.js";
 import PopupWithForm from "../components/PopupWithForm.js";
+import Api from "../components/Api.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import {
@@ -35,6 +35,14 @@ const profileEditModal = new PopupWithForm(
 );
 profileEditModal.setEventListeners();
 
+const api = new Api({
+  baseUrl: "https://around-api.en.tripleten-services.com/v1",
+  headers: {
+    authorization: "41e13be6-9869-4779-8cec-7a871b9f5d1d",
+    "Content-Type": "application/json",
+  },
+});
+
 const section = new Section(
   {
     items: initialCards,
@@ -42,14 +50,6 @@ const section = new Section(
   },
   ".cards__list"
 );
-
-const api = new Api({
-  baseUrl: "https://around-api.en.tripleten-services.com/v1",
-  headers: {
-    authorization: "ce0e6719-cfff-44ae-95da-d365cf911af3",
-    "Content-Type": "application/json"
-  }
-});
 
 section.renderItems();
 
