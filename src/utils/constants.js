@@ -26,6 +26,7 @@ export const initialCards = [
 ];
 
 export const formList = document.querySelectorAll(".modal__form");
+export const editCardModal = document.querySelector("#card-modal");
 export const profileEditBtn = document.querySelector("#profile-edit-button");
 export const profileEditModal = document.querySelector("#profile-edit-modal");
 export const cardEditForm = profileEditModal.querySelector("modal__container-form");

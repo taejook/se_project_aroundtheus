@@ -2,15 +2,19 @@ import Popup from "./Popup.js";
 
 export default class PopupWithForm extends Popup {
     constructor(popupSelector, handleFormSubmit, loadingButtonText) {
-      super({ popupSelector });
-      this._inputList = this._popupElement.querySelectorAll(
-        ".modal__container-input"
-      );
-      this._popupForm = this._popupElement.querySelector(".modal__form");
+      super(popupSelector);
+      this._submitButton = document.querySelector(".modal__button");
       this._handleFormSubmit = handleFormSubmit;
       this._buttonText = this._submitButton.textContent;
-
       this._loadingButtonText = loadingButtonText;
+
+      this._popupForm = document.querySelector(
+        ".modal__container-form"
+      );
+
+      this._inputList = document.querySelectorAll(
+        ".modal__container-input"
+      );
     }
 
     showLoading(){

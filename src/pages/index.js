@@ -1,5 +1,4 @@
 import Card from "../components/Card.js";
-import Api from "../components/Api.js";
 import FormValidator from "../components/FormValidator.js";
 import '../pages/index.css';
 import PopupWithImage from "../components/PopupWithImage.js";
@@ -21,34 +20,36 @@ import {
   addNewCardButton,
   profileTitle,
   profileTitleInput,
-  cardEditModal,
+  previewImageModal,
+  editCardModal,
   profileEditModal,
   profileDescriptionInput,
   profileImageModal,
   profilePicModalInput,
   settings,
-} from "../utils/components.js";
+} from "../utils/constants.js";
+import Api from "../components/Api.js";
 import "./index.css";
 
 //const card = new Card(cardData, '#card-template');
 //card._getView();
 
 //Class Instances
-const previewImageModal = new PopupWithImage("#preview-image-modal");
-previewImageModal.setEventListeners();
+const popupPreviewImage = new PopupWithImage(previewImageModal);
+popupPreviewImage.setEventListeners();
 
 const popupProfileForm = new PopupWithForm(
-  profileEditModal,
+  '#profile-edit-modal',
   handleProfileEditSubmit,
   loadingButtonText
 );
 const popupCardForm = new PopupWithForm(
-  cardEditModal,
+  '#card-modal',
   handleAddCardSubmit,
   loadingButtonText
 );
 const popupProfileImageForm = new PopupWithForm(
-  profileImageModal,
+  '#preview-image-modal',
   handleProfileImageFormSubmit,
   loadingButtonText
 );
@@ -79,21 +80,14 @@ const api = new Api({
   },
 });
 
-api.getAllData()
-.then(([userInfo, cards]) => {
-  renderUserInfo(userInfo);
-  renderCard(cards);
-})
-.catch(error => {
-  console.error('Error fetching data:', error);
-});
-
 api
   .getInitialCards()
   .then((cardItems) => {
     section.renderItems(cardItems);
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+  });
 
 
 api
@@ -106,7 +100,9 @@ api
       descriptionInput:res.description,
     });
   })
-  .catch((err) => console.log(err));
+  .catch((err) => {
+    console.log(err);
+  });
 
 const userInfo = new UserInfo({
     nameSelector: profileTitle,
@@ -150,26 +146,6 @@ function handleAddCardSubmit(inputValues) {
     .catch((err) => console.log(err))
     .finally(() => {
       popupCardForm.hideLoading();
-    });
-}
-
-function handleProfileEditSubmit(inputValues) {
-  api
-    .updateProfileInfo({
-      name: inputValues.title,
-      about: inputValues.description,
-    })
-    .then(() => {
-      popupProfileForm.showLoading();
-      userInfo.setUserInfo({
-        nameInput: inputValues.title,
-        descriptionInput: inputValues.description,
-      });
-      popupProfileForm.close();
-    })
-    .catch((err) => console.log(err))
-    .finally(() => {
-      popupProfileForm.hideLoading();
     });
 }
 
@@ -241,8 +217,9 @@ function renderCard(cardData) {
     handleDeleteClick,
     handleLikeClick,
     handleDislikeClick
-  ).getview();
-  section.addItem(cardElement);
+  ).getView();
+  section.addItems(cardElement);
+  return Promise.all(userInfo, cardListEl);
 }
 
 //Validation
