@@ -45,26 +45,23 @@
     <footer class="footer page__section">
         <p class="footer__text">© 2022 Around The U.S.</p>
     </footer>
-    <!--Profile Image Modal-->
-    <div id="profile-image-modal" class="modal js-modals">
-      <div class="modal__container js-modalContainer">
-        <button type="button" class="modal__close"></button>
-        <h2 class="modal__heading">Change Profile Picture</h2>
-        <form class="modal__container-form js-modal-add-card-form">
-          <input
-            id="modal-image-url"
-            class="modal__container-input js-modalDescription"
-            type="url"
-            placeholder="Image Link"
-            name="avatar"
-            required
-          />
-          <span id="modal-image-url-error" class="modal__error"></span>
-          <button
-            type="submit"
-            class="modal__button modal__button_disabled"
-            disabled
-          >
+
+    <!-- Delete Modal -->
+
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container" id="modal__confirm">
+        <button
+          class="modal__close"
+          id="card-modal-button-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading confirm__heading">Are you sure?</h2>
+        <button class="modal__button" id="modal-button-confirm" type="submit">
+          Yes
+        </button>
+      </div>
+    </div>
+
     <!-- Edit card modal-->
     <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
@@ -86,8 +83,35 @@
         </div>
     </div>
 
+        <!-- Avatar Modal -->
+
+        <div class="modal" id="avatar-edit-modal">
+          <div class="modal__container">
+            <button
+              class="modal__close"
+              id="avatar-modal-button-close"
+              type="button"
+            ></button>
+            <h2 class="modal__heading">Change Profile Picture</h2>
+            <form class="modal__form">
+              <label class="modal__label">
+                <input
+                  type="url"
+                  name="link"
+                  placeholder="https://somewebsite.com/someimage.jpg"
+                  class="modal__input"
+                  id="avatar-url-input"
+                  required
+                />
+                <span class="modal__error" id="avatar-url-input-error"></span>
+              </label>
+              <button class="modal__button" type="submit">Save</button>
+            </form>
+          </div>
+
+
     <!-- Add Card Modal-->
-    <div class="card-modal" id="add-card-modal">
+    <div class="modal" id="add-card-modal">
         <div class="modal__container">
             <button class="modal__close" id="add-card-close"></button>
             <h2 class="modal__heading">New Place</h2>
@@ -107,23 +131,13 @@
         </div>
     </div>
     <!--Preview Modal-->
-    <div class="preview-modal" id='preview-image-modal'>
+    <div class="modal" id='preview-image-modal'>
         <div class="modal__preview">
             <button class="modal__close" id="preview-close-modal" type="button">
             </button>
             <img src="" alt="" class="modal__preview-image">
             <h2 class="modal__preview-description"></h2>
         </div>
-    </div>
-    <!--Delete Card Modal-->
-    <div id="delete-modal" class="modal">
-      <form class="modal__container">
-        <button type="button" class="modal__close"></button>
-        <h2 class="modal__heading">Are you sure?</h2>
-        <button type="submit" class="modal__button modal__container-form">
-          Yes
-        </button>
-      </form>
     </div>
 </body>
 

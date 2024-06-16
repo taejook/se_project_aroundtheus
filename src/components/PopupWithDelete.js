@@ -1,33 +1,20 @@
-import Popup from "./Popup";
+import Popup from "./Popup.js";
 
-export default class PopupWithDelete extends Popup {
-  constructor(popupSelector, loadingButtonText) {
-    super(popupSelector);
-    this._buttonText = this._submitButton.textContent;
-    this._loadingButtonText = loadingButtonText;
-  }
-
-  showLoading() {
-    this._submitButton.textContent = this._loadingButtonText;
-  }
-
-  hideLoading() {
-    this._submitButton.textContent = this._buttonText;
+export default class PopupwithDelete extends Popup {
+  constructor({ popupSelector }) {
+    super({ popupSelector });
   }
 
   setEventListeners() {
-    super.setEventListeners();
-
-    this._modalContainer.addEventListener("submit", (evt) => {
-      evt.preventDefault();
-      this._handleDeleteFormSubmit().then(() => {
-        this.close();
+    this._popupElement
+      .querySelector(".modal__button")
+      .addEventListener("click", () => {
+        this._handleDelete();
       });
-      // this.close();
-    });
+    super.setEventListeners();
   }
 
-  setSubmitAction(action) {
-    this._handleDeleteFormSubmit = action;
+  setSubmitAction(handleDelete) {
+    this._handleDelete = handleDelete;
   }
 }

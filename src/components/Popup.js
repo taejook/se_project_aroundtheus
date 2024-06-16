@@ -1,9 +1,6 @@
 export default class Popup {
-    constructor(popupSelector) {
-        this._popupElement = popupSelector;
-        this._closeButton = document.querySelector('#profile-edit-close');
-        this._modalContainer =
-          document.querySelector(".modal__container");
+    constructor({ popupSelector }) {
+        this._popupElement = document.querySelector(popupSelector);
       }
 
       open() {
@@ -23,8 +20,10 @@ export default class Popup {
       };
 
       setEventListeners() {
-        this._closeButton.addEventListener("click", () => {
-          this.close();
+        this._popupElement.addEventListener("click", (evt) => {
+          if (evt.target.classList.contains("modal_opened")) {
+            this.close();
+          }
         });
 
         this._popupElement.addEventListener("click", (evt) => {
