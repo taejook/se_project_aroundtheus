@@ -7,12 +7,15 @@ import PopupWithForm from "../components/PopupWithForm.js";
 import Section from "../components/Section.js";
 import UserInfo from "../components/UserInfo.js";
 import Api from "../components/Api.js";
+import Popup from "../components/Popup.js";
 import {
   initialCards,
   cardListEl,
   profileEditBtn,
   profileEditForm,
   addCardForm,
+  addCardModal,
+  addCardButton,
   addNewCardButton,
   profileTitleInput,
   profileDescriptionInput,
@@ -23,7 +26,6 @@ import "./index.css";
 
 //const card = new Card(cardData, '#card-template');
 //card._getView();
-
 const api = new Api({
   baseUrl: "https://around-api.en.tripleten-services.com/v1",
   headers: {
@@ -88,7 +90,11 @@ api
 /*Functions*/
 
 function createCard(data) {
-  const card = new Card(data, "#card-template", handleImageClick).getView();
+  const card = new Card(data, "#card-template",
+    handleImageClick,
+    handleDelete,
+    handleLikeCard
+  ).getView();
   return card;
 }
 
@@ -186,17 +192,17 @@ function handleProfileEditFormSubmit(inputValues) {
 
 //Event Handlers
 function handleProfileEditSubmit(inputValues) {// {title: jacke , description: exploer}
-  profileEditValidator.resetValidation();
+  editFormValidator.resetValidation();
   userInfo.setUserInfo({name: inputValues.title, description: inputValues.description});
   profileEditModal.close();
-  profileEditValidator.disableButton();
+  editFormValidator.disableButton();
 }
 
 function handleAddCardSubmit(inputValues) {
   console.log(inputValues);
   renderCard(inputValues);
   addCardModal.close();
-  addCardValidator.disableButton();
+  addFormValidator.disableButton();
   addCardForm.reset();
 }
 
@@ -208,7 +214,7 @@ function handleImageClick(cardData) {
 profileEditBtn.addEventListener("click", () => {
   const currentUserData = userInfo.getUserInfo();
   console.log(currentUserData);
-  profileEditValidator.resetValidation();
+  editFormValidator.resetValidation();
   profileTitleInput.value = currentUserData.name;
   profileDescriptionInput.value = currentUserData.description;
   profileEditModal.open();
@@ -219,8 +225,16 @@ const addFormValidator = new FormValidator(settings, addCardForm);
 const avatarFormValidator = new FormValidator(settings, avatarForm);
 
 //add new Card button
-addNewCardButton.addEventListener("click", () => {
-  addCardModal.open();
+console.log(addCardModal); // Log to ensure it has the open method
+
+document.addEventListener('DOMContentLoaded', () => {
+    document.querySelector('.profile__add-button').addEventListener('click', () => {
+        if (typeof addCardModal.open === 'function') {
+            addCardModal.open();
+        } else {
+            console.error('addCardModal.open is not a function');
+        }
+    });
 });
 
 function renderCard(cardData) {
