@@ -18,11 +18,14 @@
         </header>
         <main class="content">
             <section class="profile page__section">
-                <img src="<%=require('./images/jacques-cousteau.png')%>" alt="avatar" class="profile__image">
+              <div class="profile__container">
+                <img src="" alt="avatar" class="profile__image">
+                <button class="profile__image-button" type="button"></button>
+              </div>
                 <div class="profile__info">
-                    <h1 class="profile__title">Jacques Cousteau</h1>
+                    <h1 class="profile__title"></h1>
                     <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
-                    <p class="profile__description">Explorer</p>
+                    <p class="profile__description"></p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
@@ -69,12 +72,12 @@
             <p class="modal__heading">Edit Profile</p>
             <form class="modal__form" id ="profile-edit-form">
                 <label class="modal__label">
-                    <input class="modal__input" type="text" name="title" id="profile-title-input" placeholder="Name"
+                    <input class="modal__input" type="text" name="name" id="profile-title-input" placeholder="Name"
                         minlength="2" maxlength="40" required>
                     <span class="modal__error" id="profile-title-input-error"></span>
                 </label>
                 <label class="modal__label">
-                    <input class="modal__input" type="text" name="description" id="profile-description-input"
+                    <input class="modal__input" type="text" name="about" id="profile-description-input"
                         placeholder="Description" min-length="2" max-length="200" required>
                     <span class="modal__error" id="profile-description-input-error"></span>
                 </label>
