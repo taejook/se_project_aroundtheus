@@ -37,7 +37,7 @@
                             <button class="card__delete-button" type="button"></button>
                             <div class="card__description">
                                 <h2 class="cards__title"></h2>
-                                <button class="card__like-button .card__like-button_active" type="button"></button>
+                                <button class="card__like-button card__like-button_active" type="button"></button>
                             </div>
                         </li>
                     </template>
@@ -88,29 +88,30 @@
 
         <!-- Avatar Modal -->
 
-        <div class="modal" id="avatar-edit-modal">
-          <div class="modal__container">
-            <button
-              class="modal__close"
-              id="avatar-modal-button-close"
-              type="button"
-            ></button>
-            <h2 class="modal__heading">Change Profile Picture</h2>
-            <form class="modal__form">
-              <label class="modal__label">
-                <input
-                  type="url"
-                  name="link"
-                  placeholder="https://somewebsite.com/someimage.jpg"
-                  class="modal__input"
-                  id="avatar-url-input"
-                  required
-                />
-                <span class="modal__error" id="avatar-url-input-error"></span>
-              </label>
-              <button class="modal__button" type="submit">Save</button>
-            </form>
-          </div>
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="avatar-modal-button-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">Change Profile Picture</h2>
+        <form class="modal__form">
+          <label class="modal__label">
+            <input
+               type="url"
+               name="link"
+               placeholder="https://somewebsite.com/someimage.jpg"
+               class="modal__input"
+              id="avatar-url-input"
+              required
+             />
+            <span class="modal__error" id="avatar-url-input-error"></span>
+          </label>
+           <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+     </div>
 
 
     <!-- Add Card Modal-->

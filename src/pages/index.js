@@ -129,26 +129,21 @@ function handleDelete(card) {
 }
 
 function handleLikeCard(card) {
+  if (card.isLiked) {
+    api
+      .unlikeCard(card.id)
+      .then(() => {
+        card.handleLikeStatus();
+      })
+      .catch(console.error);
+  }
   if (!card.isLiked) {
     api
       .likeCard(card.id)
       .then(() => {
-        card.isLiked = true;
-        card.updateLikesView();
+        card.handleLikeStatus();
       })
-      .catch((err) => {
-        console.error(err);
-      });
-  } else {
-    api
-      .unlikeCard(card.id)
-      .then(() => {
-        card.isLiked = false;
-        card.updateLikesView();
-      })
-      .catch((err) => {
-        console.error(err);
-      });
+      .catch(console.error);
   }
 }
 
@@ -161,7 +156,7 @@ function handleAddCardFormSubmit(inputValues) {
     })
     .then((data) => {
       const card = createCard(data);
-      cardSection.addItem(card);
+      section.addItems(card);
     })
     .catch((err) => {
       console.error(err);
