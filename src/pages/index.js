@@ -133,7 +133,7 @@ function handleLikeCard(card) {
     api
       .unlikeCard(card.id)
       .then(() => {
-        card.handleLikeStatus();
+        card.handleLikeIcon();
       })
       .catch(console.error);
   }
@@ -141,7 +141,7 @@ function handleLikeCard(card) {
     api
       .likeCard(card.id)
       .then(() => {
-        card.handleLikeStatus();
+        card.handleLikeIcon();
       })
       .catch(console.error);
   }
