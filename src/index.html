@@ -18,11 +18,14 @@
         </header>
         <main class="content">
             <section class="profile page__section">
-                <img src="<%=require('./images/jacques-cousteau.png')%>" alt="avatar" class="profile__image">
+              <div class="profile__container">
+                <img src="" alt="avatar" class="profile__image">
+                <button class="profile__image-button" type="button"></button>
+              </div>
                 <div class="profile__info">
-                    <h1 class="profile__title">Jacques Cousteau</h1>
+                    <h1 class="profile__title"></h1>
                     <button class="profile__edit-button" id="profile-edit-button" type="button"></button>
-                    <p class="profile__description">Explorer</p>
+                    <p class="profile__description"></p>
                 </div>
                 <button class="profile__add-button" type="button"></button>
             </section>
@@ -34,7 +37,7 @@
                             <button class="card__delete-button" type="button"></button>
                             <div class="card__description">
                                 <h2 class="cards__title"></h2>
-                                <button class="card__like-button .card__like-button_active" type="button"></button>
+                                <button class="card__like-button card__like-button_active" type="button"></button>
                             </div>
                         </li>
                     </template>
@@ -45,6 +48,23 @@
     <footer class="footer page__section">
         <p class="footer__text">© 2022 Around The U.S.</p>
     </footer>
+
+    <!-- Delete Modal -->
+
+    <div class="modal" id="delete-card-modal">
+      <div class="modal__container" id="modal__confirm">
+        <button
+          class="modal__close"
+          id="card-modal-button-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading confirm__heading">Are you sure?</h2>
+        <button class="modal__button" id="modal-button-confirm" type="submit">
+          Yes
+        </button>
+      </div>
+    </div>
+
     <!-- Edit card modal-->
     <div class="modal" id="profile-edit-modal">
         <div class="modal__container">
@@ -52,12 +72,12 @@
             <p class="modal__heading">Edit Profile</p>
             <form class="modal__form" id ="profile-edit-form">
                 <label class="modal__label">
-                    <input class="modal__input" type="text" name="title" id="profile-title-input" placeholder="Name"
+                    <input class="modal__input" type="text" name="name" id="profile-title-input" placeholder="Name"
                         minlength="2" maxlength="40" required>
                     <span class="modal__error" id="profile-title-input-error"></span>
                 </label>
                 <label class="modal__label">
-                    <input class="modal__input" type="text" name="description" id="profile-description-input"
+                    <input class="modal__input" type="text" name="about" id="profile-description-input"
                         placeholder="Description" min-length="2" max-length="200" required>
                     <span class="modal__error" id="profile-description-input-error"></span>
                 </label>
@@ -65,6 +85,34 @@
             </form>
         </div>
     </div>
+
+        <!-- Avatar Modal -->
+
+    <div class="modal" id="avatar-edit-modal">
+      <div class="modal__container">
+        <button
+          class="modal__close"
+          id="avatar-modal-button-close"
+          type="button"
+        ></button>
+        <h2 class="modal__heading">Change Profile Picture</h2>
+        <form class="modal__form">
+          <label class="modal__label">
+            <input
+               type="url"
+               name="link"
+               placeholder="https://somewebsite.com/someimage.jpg"
+               class="modal__input"
+              id="avatar-url-input"
+              required
+             />
+            <span class="modal__error" id="avatar-url-input-error"></span>
+          </label>
+           <button class="modal__button" type="submit">Save</button>
+        </form>
+      </div>
+     </div>
+
 
     <!-- Add Card Modal-->
     <div class="modal" id="add-card-modal">
