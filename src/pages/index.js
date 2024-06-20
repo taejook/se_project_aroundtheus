@@ -19,6 +19,7 @@ import {
   addCardButton,
   addNewCardButton,
   profileTitleInput,
+  profileDescription,
   profileDescriptionInput,
   avatarForm,
   settings,

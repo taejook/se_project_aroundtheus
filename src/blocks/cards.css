@@ -30,8 +30,22 @@
     list-style-type: none;
 }
 
+#modal__confirm {
+  padding: 0 36px 36px 36px;
+  width: 430px;
+  min-height: 131px;
+}
+
+.confirm__heading {
+  padding: 34px 36px 0 0;
+}
+
 @media screen and (max-width: 568px){
     .cards{
         margin-top: 33px;
+    }
+
+    .confirm__heading {
+      padding: 25px 0 0 22px;
     }
 }
