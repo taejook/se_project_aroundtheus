@@ -62,6 +62,9 @@ api.getInitialCards().then((initialCards) => {
     ".cards__list"
   );
   section.renderItems();
+})
+.catch((err) => {
+  console.error(err);
 });
 api.fetchUserInfo().then((userData) => {
   userInfo.setUserInfo({
@@ -69,6 +72,9 @@ api.fetchUserInfo().then((userData) => {
     about: userData.about,
   });
   userInfo.setAvatar({ avatar: userData.avatar });
+})
+.catch((err) => {
+  console.error(err);
 });
 
     const addCardPopUp = new PopupWithForm(
@@ -103,19 +109,20 @@ function handleAvatarSubmit(inputValues) {
     .editAvatar({ avatar: inputValues.link })
     .then((newAvatar) => {
       userInfo.setAvatar(newAvatar);
+      editAvatarPopup.close();
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       editAvatarPopup.renderLoading(false);
-      editAvatarPopup.close();
     });
 }
 
 function handleDelete(card) {
   popupDelete.open();
   popupDelete.setSubmitAction(() => {
+    popupDelete.renderLoading(true);
     api
       .deleteInitialCards(card.id)
       .then(() => {
@@ -124,6 +131,9 @@ function handleDelete(card) {
       })
       .catch((err) => {
         console.error(err);
+      })
+      .finally(() => {
+        popupDelete.renderLoading(false);
       });
   });
 }
@@ -133,17 +143,21 @@ function handleLikeCard(card) {
     api
       .unlikeCard(card.id)
       .then(() => {
-        card.handleLikeIcon();
+        card.setIsLiked(false);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   }
   if (!card.isLiked) {
     api
       .likeCard(card.id)
       .then(() => {
-        card.handleLikeIcon();
+        card.setIsLiked(true);
       })
-      .catch(console.error);
+      .catch((err) => {
+        console.error(err);
+      });
   }
 }
 
@@ -157,13 +171,13 @@ function handleAddCardFormSubmit(inputValues) {
     .then((data) => {
       const card = createCard(data);
       section.addItems(card);
+      addCardPopUp.close();
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       addCardPopUp.renderLoading(false);
-      addCardPopUp.close();
     });
 }
 
@@ -176,13 +190,13 @@ function handleProfileEditFormSubmit(inputValues) {
     .editUserInfo(inputValues)
     .then((newUserData) => {
       userInfo.setUserInfo(newUserData);
+      editProfilePopUp.close();
     })
     .catch((err) => {
       console.error(err);
     })
     .finally(() => {
       editProfilePopUp.renderLoading(false);
-      editProfilePopUp.close();
     });
 }
 

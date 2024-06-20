@@ -25,14 +25,27 @@ export default class Card {
     );
   }
 
-  handleLikeIcon() {
-    this._likeButton.classList.toggle("card__like-button_active");
-    this.isLiked = !this.isLiked;
-  }
-
   handleDelete() {
     this._cardElement.remove();
     this._cardElement = null;
+  }
+
+  _renderLikes(){
+    if (this.isLiked) {
+      this._likeButton.classList.add("card__like-button_active");
+    } else {
+      this._likeButton.classList.remove("card__like-button_active");
+    }
+  }
+
+  setIsLiked(isLiked) {
+    // set instance variable
+     this.isLiked = isLiked;
+     this._renderLikes();
+  }
+
+  _isLiked() {
+    return this.isLiked;
   }
 
   getView() {
@@ -52,11 +65,7 @@ export default class Card {
       ".card__delete-button"
     );
         //set event listeners
-        if (this.isLiked) {
-          this._likeButton.classList.add("card__like-button_active");
-        } else {
-          this._likeButton.classList.remove("card__like-button_active");
-        }
+        this._renderLikes()
         this._setEventListeners();
         //return the card
         return this._cardElement;
